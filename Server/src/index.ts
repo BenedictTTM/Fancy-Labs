@@ -1,8 +1,8 @@
-import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import Person from './person.models';
+import express, { Request, Response } from 'express';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -20,10 +20,10 @@ app.get('/', (_req, res) => {
 // src/routes/person.routes.ts
 
 
-const router = express.Router();
+
 
 // POST /api/person
-router.post('/person', async (req, res) => {
+app.post('/person', async (req, res) => {
   try {
     const {
       name,
@@ -32,6 +32,7 @@ router.post('/person', async (req, res) => {
       location,
       age,
       gender,
+      about,
       lastClickedAt
     } = req.body;
 
@@ -42,6 +43,7 @@ router.post('/person', async (req, res) => {
       location,
       age,
       gender,
+      about,
       lastClickedAt
     });
 
@@ -53,6 +55,54 @@ router.post('/person', async (req, res) => {
 });
 
 
+app.delete('/person/:name', async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { name } = req.params;
+
+    // Find and remove the person by their name
+    const deletedPerson = await Person.findOneAndDelete({ name });
+   console.log(deletedPerson)
+  } catch (error) {
+      console.log(error)
+  }
+});
+
+
+
+
+app.get('/persons', async (req, res) => {
+    try {
+      const persons = await Person.find();
+      res.status(200).json(persons);
+    } catch (error) {
+      res.status(500).json({ message: 'Error fetching persons', error });
+    }
+  });
+  
+
+
+  app.put('/person/:id', async (req: Request, res: Response): Promise<void> => {
+    const { id } = req.params;
+    const { about } = req.body;
+  
+    try {
+      const updatedPerson = await Person.findByIdAndUpdate(
+        id,
+        { about },
+        { new: true, runValidators: true }
+      );
+  
+      if (!updatedPerson) {
+        res.status(404).json({ message: 'Person not found' });
+        return;
+      }
+  
+      res.status(200).json(updatedPerson);
+    } catch (error) {
+      res.status(500).json({ message: 'Error updating person', error });
+    }
+  });
+  
 
 
 // Connect to MongoDB and start the server
