@@ -1,16 +1,23 @@
-import React from 'react'
-import TypedAnimation from '../Pages/TypeAnimation'
-import FancyLabs from '../../public/FancyLabs.png'
+import React, { useEffect, useState } from 'react';
+import TypedAnimation from '../Pages/TypeAnimation';
+import Home from '../Pages/Home';
 
 function App() {
+  const [showHome, setShowHome] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowHome(true);
+    }, 2000); // 2 seconds
+
+    return () => clearTimeout(timer); // cleanup
+  }, []);
+
   return (
-    <div  className='container mx-auto flex flex-col items-center justify-center h-screen bg-black'>
-        <div className='bg-black '>
-            <img src={FancyLabs} alt="FancyLab" className='bg-black h-20 items-center flex' />
-            <TypedAnimation />
-        </div>
+    <div>
+      {showHome ? <Home /> : <TypedAnimation />}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
