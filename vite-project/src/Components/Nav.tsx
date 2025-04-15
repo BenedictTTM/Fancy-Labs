@@ -6,7 +6,7 @@ function Nav() {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <div className="relative bg-black border-b border-gray-50 px-4 py-3">
+    <div className="relative bg-black border-b border-gray-50 px-4 py-3 z-40">
       {/* Glowing background */}
       <div className="absolute top-0 left-0 h-20 w-20 rounded-full bg-red-500 blur-3xl opacity-30 animate-pulse z-0" />
 
@@ -46,13 +46,22 @@ function Nav() {
 
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex space-x-8 text-white font-thin">
-          <a href="#home" className="hover:underline">Home</a>
-          <a href="#about" className="hover:underline">About</a>
-          <a href="#services" className="hover:underline">Services</a>
-          <a href="#contact" className="hover:underline">Contact</a>
-          <a href="#projects" className="hover:underline">Our Work</a>
-        </nav>
+        <div className="w-full flex justify-center">
+  <nav className="hidden md:flex items-center space-x-8 text-white font-thin">
+    <a href="#home" className="hover:text-yellow-100 transition duration-300">Home</a>
+    <a href="#about" className="hover:text-yellow-100 transition duration-300">About</a>
+    <a href="#services" className="hover:text-yellow-100 transition duration-300">Services</a>
+    <a href="#contact" className="hover:text-yellow-100 transition duration-300">Contact</a>
+    <a
+      href="#projects"
+      className="bg-gradient-to-r from-amber-300 to-yellow-400 text-gray-900 font-semibold px-5 py-1.5 rounded-lg shadow-md  "
+    >
+      Our Work
+    </a>
+  </nav>
+</div>
+
+
 
         {/* Mobile Hamburger Icon */}
         <FaBars

@@ -1,5 +1,6 @@
 import Nav from '../Components/Nav'
 import bulb from '../../public/bulb.jpg'
+import Whoarewe from './whoarewe'
 
 import { useState, useEffect } from 'react';
 
@@ -28,7 +29,7 @@ function Home() {
   <img
       src={bulb}
       alt="Fancy Labs"
-      className={`h-100 w-100 object-cover rounded-xl -pt-10 shadow-xl relative z-10 transition-opacity duration-1200 ease-in animate-pulse ${
+      className={`h-100 w-100 object-cover rounded-xl -mt-12 shadow-xl relative z-10 transition-opacity duration-1200 ease-in animate-pulse ${
         visible ? 'opacity-35' : 'opacity-15'
       }`}
     />
@@ -49,6 +50,9 @@ function Home() {
 </div>
 
       </div>
+      <div className='-mt-50 h-100'>
+    <Whoarewe />
+    </div>
     </div>
   );
 }
