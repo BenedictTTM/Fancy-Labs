@@ -1,6 +1,7 @@
 import Nav from '../Components/Nav'
 import bulb from '../../public/bulb.jpg'
-import Whoarewe from './whoarewe'
+import Whoarewe from './Whoarewe'
+import OurServices from './OurServices'
 
 import { useState, useEffect } from 'react';
 
@@ -53,6 +54,7 @@ function Home() {
       <div className='-mt-50 h-100'>
     <Whoarewe />
     </div>
+    <OurServices />
     </div>
   );
 }
