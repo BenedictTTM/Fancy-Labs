@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Fancy from '../../public/Fancy Logo.png';
+import Fancy from '../../public/FancyL.png';
 
 const text = "Where ideas get fancy";
 

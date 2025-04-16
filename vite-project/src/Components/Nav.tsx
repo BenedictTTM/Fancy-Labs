@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import fancy from '../../public/Fancy Logo.png';
+import fancy from '../../public/FancyL.png';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 // Extracted styles to avoid inline style JSX
