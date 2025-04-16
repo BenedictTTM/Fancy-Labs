@@ -3,17 +3,41 @@ import womantyping from '../../public/womantyping.jpg'
 
 function Whoarewe() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
 
   useEffect(() => {
+    // Initial visibility animation
     const timeout = setTimeout(() => {
       setIsVisible(true);
     }, 300);
 
-    return () => clearTimeout(timeout);
+    // Scroll event handler
+    const handleScroll = () => {
+      // You can adjust this threshold value to control when the component disappears
+      const scrollThreshold = 1200; // Example value in pixels
+      
+      if (window.scrollY > scrollThreshold) {
+        setIsHidden(true);
+      } else {
+        setIsHidden(false);
+      }
+    };
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
-    <div className="relative w-full h-[550px] md:h-[500px] lg:h-[600px] overflow-hidden rounded-xl shadow-2xl my-16  ">
+    <div 
+      className={`relative w-full h-[550px] md:h-[500px] lg:h-[600px] overflow-hidden rounded-xl shadow-2xl my-16 transition-all duration-700 ${isHidden ? 'opacity-0 transform translate-y-20  pointer-events-none' : 'opacity-100'}`}
+    >
+      {/* Rest of your component remains the same */}
       {/* Background Image with zoom effect */}
       <img
         src={womantyping}
@@ -21,7 +45,7 @@ function Whoarewe() {
         className="w-full h-full object-cover object-center transition-transform duration-10000 hover:scale-110"
       />
       
-      {/* Gradient Overlay - more sophisticated than a simple opacity */}
+      {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent rounded-xl"></div>
       
       {/* Decorative elements */}
@@ -30,6 +54,7 @@ function Whoarewe() {
       
       {/* Content */}
       <div className={`absolute inset-0 flex flex-col justify-center text-left text-white p-8 md:p-12 w-full md:w-3/5 lg:w-1/2 transform transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-[-20px] opacity-0'}`}>
+        {/* Content remains the same */}
         <div className="relative">
           {/* Subtitle with line */}
           <div className="flex items-center mb-2">

@@ -39,7 +39,7 @@ function OurServices() {
         {services.map((service, idx) => (
           <div
             key={idx}
-            className={`flex flex-col items-center text-center bg-[#1f1f1f] p-6 rounded-2xl shadow-lg hover:shadow-yellow-500/20 transform transition-all duration-500 ease-in-out border border-gray-700 opacity-0 animate-fadeIn hover:-translate-y-2
+            className={`flex flex-col items-center text-center bg-[#1f1f1f] p-6 rounded-2xl shadow-md hover:shadow-amber-200 shadow-yellow-500/20 transform transition-all duration-500 ease-in-out border border-gray-700 opacity-0 animate-fadeIn hover:-translate-y-2
               ${idx === 0 ? 'lg:rotate-[-5deg] lg:h-96 animation-delay-100' : ''}
               ${idx === 1 ? 'my-6 z-10 lg:h-96 animation-delay-300' : ''}
               ${idx === 2 ? 'lg:rotate-[5deg] mt-4 lg:h-96 animation-delay-500' : ''}`}
