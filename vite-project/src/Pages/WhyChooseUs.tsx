@@ -1,9 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, MessageCircle, CheckCircle, Clock } from 'lucide-react';
+
+type AnimatedFeatureItemProps = {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  delay?: number;
+};
 
 export default function WhyChooseUs() {
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
-  const headerRef = useRef(null);
+  const headerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -29,60 +36,62 @@ export default function WhyChooseUs() {
 
   return (
     <div className="bg-black px-4 py-20 relative overflow-hidden">
-      {/* Background decoration elements */}
       <div className="absolute top-20 left-10 w-64 h-64 bg-yellow-500/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl"></div>
-      
+
       <div className="max-w-6xl mx-auto relative z-10">
-        <div 
+        <div
           ref={headerRef}
           className={`text-center md:text-left mb-16 transition-all duration-1000 transform ${
             isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <p className="inline-block text-yellow-400 font-medium px-4 py-1 rounded-full bg-yellow-400/10 mb-4">Features</p>
-          
+          <p className="inline-block text-yellow-400 font-medium px-4 py-1 rounded-full bg-yellow-400/10 mb-4">
+            Features
+          </p>
+
           <h2 className="text-4xl md:text-5xl font-bold text-gray-100 mb-6">
             Why Choose <span className="text-yellow-400">Us</span>?
           </h2>
-          
+
           <p className="text-gray-400 text-lg mb-6 max-w-3xl mx-auto md:mx-0">
-            We don't just build software—we craft digital experiences that transform businesses. Our solutions blend cutting-edge technology with visionary thinking to empower your brand's journey into the future.
+            We don't just build software—we craft digital experiences that transform businesses.
+            Our solutions blend cutting-edge technology with visionary thinking to empower your brand's journey into the future.
           </p>
         </div>
 
         <div className="space-y-12">
-          <AnimatedFeatureItem 
+          <AnimatedFeatureItem
             icon={<MessageCircle className="w-6 h-6 text-yellow-400" />}
             title="Excellence in Every Line of Code"
             description="Our passionate team of digital craftsmen doesn't settle for ordinary. We push boundaries, challenge conventions, and deliver solutions that don't just meet expectations—they redefine them. When you choose us, you're choosing a partner obsessed with your success."
             delay={0}
           />
-          
-          <AnimatedFeatureItem 
+
+          <AnimatedFeatureItem
             icon={<CheckCircle className="w-6 h-6 text-yellow-400" />}
             title="Built on Trust, Powered by Innovation"
             description="Behind every pixel and every function is our unwavering commitment to quality. We build systems that stand the test of time—robust, secure, and adaptable. Your vision deserves nothing less than absolute reliability and forward-thinking execution."
             delay={200}
           />
-          
-          <AnimatedFeatureItem 
+
+          <AnimatedFeatureItem
             icon={<Clock className="w-6 h-6 text-yellow-400" />}
             title="Your Timeline Is Our Promise"
             description="In the digital realm, momentum matters. We respect your urgency and understand that opportunity waits for no one. Our agile approach ensures your project launches right when you need it—without compromising the exceptional quality that defines our work."
             delay={400}
           />
         </div>
-        
+
         <AnimatedButton />
       </div>
     </div>
   );
 }
 
-function AnimatedFeatureItem({ icon, title, description, delay }) {
+function AnimatedFeatureItem({ icon, title, description, delay = 0 }: AnimatedFeatureItemProps) {
   const [isVisible, setIsVisible] = useState(false);
-  const featureRef = useRef(null);
+  const featureRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -109,7 +118,7 @@ function AnimatedFeatureItem({ icon, title, description, delay }) {
   }, [delay]);
 
   return (
-    <div 
+    <div
       ref={featureRef}
       className={`flex items-start group transition-all duration-700 transform ${
         isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
@@ -121,9 +130,11 @@ function AnimatedFeatureItem({ icon, title, description, delay }) {
           <div className="rounded-full bg-gray-800 p-4 mr-6 border border-yellow-500/20 shadow-lg shadow-yellow-500/10 group-hover:bg-yellow-900/60 transition-colors duration-300">
             {icon}
           </div>
-          
+
           <div className="flex-1">
-            <h3 className="text-xl md:text-2xl font-semibold text-gray-100 mb-3 group-hover:text-yellow-400 transition-colors duration-300">{title}</h3>
+            <h3 className="text-xl md:text-2xl font-semibold text-gray-100 mb-3 group-hover:text-yellow-400 transition-colors duration-300">
+              {title}
+            </h3>
             <p className="text-gray-400 mb-4 leading-relaxed">{description}</p>
             <a href="#" className="inline-flex items-center text-yellow-400 hover:text-yellow-300 font-medium group-hover:underline">
               Discover more <ArrowRight className="ml-1 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -137,7 +148,7 @@ function AnimatedFeatureItem({ icon, title, description, delay }) {
 
 function AnimatedButton() {
   const [isVisible, setIsVisible] = useState(false);
-  const buttonRef = useRef(null);
+  const buttonRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -162,8 +173,8 @@ function AnimatedButton() {
   }, []);
 
   return (
-    <div 
-      ref={buttonRef} 
+    <div
+      ref={buttonRef}
       className={`mt-16 text-center transition-all duration-1000 transform ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Facebook, Instagram, Twitter, Linkedin, Phone, Mail } from 'lucide-react';
 
 export default function Footer() {
@@ -19,7 +18,7 @@ export default function Footer() {
               <p><span className="text-yellow-400 font-medium">Step 1:</span> Share your brilliant vision</p>
               <p><span className="text-yellow-400 font-medium">Step 2:</span> Let our experts bring it to life</p>
             </div>
-            
+
             <div className="space-y-2">
               <div className="flex items-start">
                 <span className="text-yellow-400 font-medium min-w-24">Headquarters:</span>
@@ -73,7 +72,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        
+
         <div className="pt-8 mt-8 border-t border-gray-800 text-center text-sm">
           <p>Crafting digital excellence since 2025 | &copy; {new Date().getFullYear()} Fancy Labs Ghana Limited. All rights reserved.</p>
         </div>
@@ -82,7 +81,7 @@ export default function Footer() {
   );
 }
 
-function SocialButton({ icon }) {
+function SocialButton({ icon }: { icon: React.ReactNode }) {
   return (
     <a 
       href="#" 
@@ -93,7 +92,7 @@ function SocialButton({ icon }) {
   );
 }
 
-function FooterLink({ href, text }) {
+function FooterLink({ href, text }: { href: string; text: string }) {
   return (
     <li>
       <a 

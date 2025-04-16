@@ -47,7 +47,7 @@ function TypedAnimation() {
       </h1>
 
       {/* Custom styles for shimmer and blinking */}
-      <style jsx>{`
+      <style >{`
         .animate-blink {
           animation: blink 1s steps(2, start) infinite;
         }

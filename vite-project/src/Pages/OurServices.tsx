@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Smartphone, Globe, Droplet } from 'lucide-react';
 
 const services = [
@@ -90,7 +90,7 @@ function OurServices() {
         </a>
       </div>
 
-      <style jsx>{`
+      <style >{`
         @keyframes fadeIn {
           from { opacity: 0; }
           to { opacity: 1; }
