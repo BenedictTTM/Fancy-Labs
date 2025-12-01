@@ -11,7 +11,7 @@ function Home() {
   return (
     <div>
       <Nav />
-      <div className='container mx-auto flex flex-col items-center justify-center bg-black min-h-screen px-4 sm:px-6'>
+      <div className='container mx-auto flex flex-col items-center justify-center bg-black min-h-[115vh] px-4 sm:px-6'>
         <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8 p-4 sm:p-6 -mt-20 md:-mt-40 relative w-full">
 
           {/* Right side background styling - decorative elements */}
