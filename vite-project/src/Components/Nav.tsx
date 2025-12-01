@@ -24,62 +24,13 @@ const shimmerStyles = `
 `;
 
 // 🔶 Type definitions for props
-type NavLinksProps = {
-  isMobile?: boolean;
-  closeMenu?: () => void;
-};
-
 type FancyTitleProps = {
   text: string;
   preText?: string;
   className?: string;
 };
 
-// ✅ NavLinks component
-const NavLinks = ({ isMobile, closeMenu }: NavLinksProps) => {
-  const links = [
-    { href: "#home", text: "Home" },
-    { href: "#about", text: "About" },
-    { href: "#services", text: "Services" },
-    { href: "#contact", text: "Contact" },
-  ];
 
-  const handleLinkClick = useCallback(() => {
-    if (isMobile && closeMenu) {
-      closeMenu();
-    }
-  }, [isMobile, closeMenu]);
-
-  return (
-    <>
-      {links.map((link) => (
-        <a
-          key={link.href}
-          href={link.href}
-          className={
-            isMobile
-              ? "hover:border-b hover:border-amber-300 pb-1"
-              : "hover:text-yellow-100 transition duration-300"
-          }
-          onClick={handleLinkClick}
-        >
-          {link.text}
-        </a>
-      ))}
-      <a
-        href="#projects"
-        className={
-          isMobile
-            ? "hover:border-b hover:border-amber-200 pb-1"
-            : "bg-gradient-to-r from-amber-300 to-yellow-400 text-gray-900 font-semibold px-5 py-1.5 rounded-lg shadow-md"
-        }
-        onClick={handleLinkClick}
-      >
-        Our Work
-      </a>
-    </>
-  );
-};
 
 // ✅ FancyTitle component
 const FancyTitle = ({ text, preText = "", className = "" }: FancyTitleProps) => (
@@ -122,7 +73,6 @@ function Nav() {
         {/* Desktop navigation */}
         <div className="hidden md:flex w-full justify-center">
           <nav className="flex items-center space-x-8 text-white font-thin">
-            <NavLinks />
           </nav>
         </div>
 
@@ -157,7 +107,6 @@ function Nav() {
         </div>
 
         <ul className="flex flex-col space-y-6 text-lg">
-          <NavLinks isMobile={true} closeMenu={closeMenu} />
         </ul>
       </div>
     </div>

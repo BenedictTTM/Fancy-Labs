@@ -11,8 +11,8 @@ function Home() {
   return (
     <div>
       <Nav />
-      <div className='container mx-auto flex flex-col items-center justify-center bg-black min-h-screen h-180'>
-        <div className="flex flex-col md:flex-row items-center gap-8 p-6 -mt-40 relative">
+      <div className='container mx-auto flex flex-col items-center justify-center bg-black min-h-screen px-4 sm:px-6'>
+        <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8 p-4 sm:p-6 -mt-20 md:-mt-40 relative w-full">
 
           {/* Right side background styling - decorative elements */}
           <div className="absolute right-0 top-0 h-full w-1/2 opacity-20 hidden md:block">
@@ -30,7 +30,7 @@ function Home() {
           </div>
 
           {/* Image Section */}
-          <div className="relative h-100 w-100 md:w-130 hidden md:block">
+          <div className="relative h-60 w-60 sm:h-80 sm:w-80 md:h-100 md:w-130 mx-auto md:mx-0">
             <div className="absolute -inset-2 bg-gradient-to-r from-yellow-600/20 to-yellow-300/20 rounded-full blur-2xl"></div>
             <div className="absolute inset-0 bg-black bg-opacity-50 rounded-full blur-xl"></div>
 
@@ -48,34 +48,32 @@ function Home() {
           </div>
 
           {/* Text Section */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left mt-20 z-10 overflow-hidden">
-            <div className="max-w-xl relative">
+          <div className="flex flex-col items-center md:items-start text-center md:text-left mt-8 md:mt-20 z-10 overflow-hidden w-full">
+            <div className="max-w-xl relative w-full px-2 sm:px-4">
               <div className="absolute -inset-1 bg-gradient-to-r from-yellow-500/405 to-transparent blur-lg"></div>
 
-              <h1 className="flex justify-center md:justify-start text-yellow-50 text-2xl font-mono opacity-0 animate-fadeIn relative z-10">
-                Welcome to <span className="ml-2 relative ">
+              <h1 className="flex flex-wrap justify-center md:justify-start text-yellow-50 text-lg sm:text-xl md:text-2xl font-mono opacity-0 animate-fadeIn relative z-10">
+                Welcome to <span className="ml-2 relative">
                   Fancy Labs
                   <span className="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-yellow-500/50 to-transparent"></span>
                 </span>
               </h1>
 
-              <span className="font-semibold text-yellow-400 text-3xl flex justify-center md:justify-start lg:text-4xl mt-4 opacity-0 animate-slideIn animation-delay-300 drop-shadow-lg">
+              <span className="font-semibold text-yellow-400 text-2xl sm:text-3xl flex justify-center md:justify-start lg:text-4xl mt-3 md:mt-4 opacity-0 animate-slideIn animation-delay-300 drop-shadow-lg">
                 Simply the best at what we do.
               </span>
 
-              <p className="text-sm text-gray-400 p-6 md:pl-0 md:pr-6 md:py-4 opacity-0 animate-fadeUp animation-delay-600 leading-relaxed">
+              <p className="text-xs sm:text-sm text-gray-400 px-4 py-3 md:pl-0 md:pr-6 md:py-4 opacity-0 animate-fadeUp animation-delay-600 leading-relaxed">
                 Trusted by visionary startups and forward-thinking brands, we deliver mobile experiences that lead, inspire, and outperform.
               </p>
 
               {/* Call to action button */}
-              <div className="mt-6 flex justify-center md:justify-start opacity-0 animate-fadeUp animation-delay-900">
+              <div className="mt-4 md:mt-6 flex justify-center md:justify-start opacity-0 animate-fadeUp animation-delay-900">
                 <a
                   href="#services"
-                  className="px-6 py-2 bg-gradient-to-r from-yellow-700/30 to-yellow-500/30 border border-yellow-500/70 rounded-full text-yellow-400 hover:text-yellow-300 transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/20 group"
+                  className="px-5 py-2 sm:px-6 text-sm sm:text-base bg-gradient-to-r from-yellow-700/30 to-yellow-500/30 border border-yellow-500/70 rounded-full text-yellow-400 hover:text-yellow-300 transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/20 group"
                 >
-                  Explore our work
-                  <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
-                </a>
+                  We are the best             </a>
               </div>
             </div>
 
@@ -182,7 +180,7 @@ function Home() {
         </div>
       </div>
 
-      <div className='-mt-50 h-100'>
+      <div className='mt-8 md:-mt-50 md:h-100'>
         <Whoarewe />
       </div>
       <OurServices />
